@@ -6,18 +6,18 @@ const day01Data = {
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-950/30 rounded-full blur-3xl pointer-events-none"></div>
         <div class="max-w-4xl mx-auto relative z-10">
           <div class="inline-flex items-center space-x-2 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3 bg-amber-950/50 px-3 py-1 rounded-full border border-amber-900/50">
-            <i data-lucide="hand" class="w-3.5 h-3.5"></i>
-            <span>Day 1 Focus: Greetings & Basic Introductions</span>
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Day 1 Comprehensive Masterclass</span>
           </div>
           <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-neutral-100">
-            Day 01: 基本の挨拶と自己紹介 (¡Hola! / Me llamo...)
+            Day 01: 挨拶・自己紹介の極意 ＆ 文化的背景とラテンポップの世界
           </h2>
           <div class="bg-neutral-900/90 border border-neutral-800 rounded-xl p-4 flex items-start space-x-3 text-xs text-neutral-300 backdrop-blur-sm">
             <i data-lucide="globe" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
             <div>
-              <strong class="text-amber-300 font-semibold">For English Speakers:</strong>
+              <strong class="text-amber-300 font-semibold">From A1 Basics to B2 Nuances:</strong>
               <span class="ml-1 text-neutral-300">
-                Master essential Spanish greetings, introducing your name, and polite interactions.
+                マスターする挨拶のバリエーション、再帰動詞の構造、そしてスペイン語圏特有の人格的距離感（Simpatía）を学びます。
               </span>
             </div>
           </div>
@@ -26,6 +26,7 @@ const day01Data = {
 
       <!-- Main Content -->
       <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+
         <!-- Speed Controller -->
         <div class="bg-white border border-neutral-200/80 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
           <div class="flex items-center space-x-2 text-neutral-800">
@@ -38,40 +39,213 @@ const day01Data = {
           </div>
         </div>
 
-        <!-- Section 1: Dialogues -->
+        <!-- Section 1: Detailed Explanations & Culture -->
+        <section class="space-y-6">
+          <div class="flex items-center space-x-2 border-b border-neutral-200 pb-3">
+            <i data-lucide="book-open" class="w-5 h-5 text-amber-600"></i>
+            <h3 class="text-xl font-bold text-neutral-900">1. 深掘り解説：挨拶・自己紹介の文法とニュアンス</h3>
+          </div>
+
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 sm:p-8 shadow-sm space-y-6 text-sm leading-relaxed text-neutral-800">
+            <div class="space-y-2 border-l-2 border-amber-500 pl-4">
+              <h4 class="font-bold text-neutral-900 text-base">① 時間帯による挨拶の使い分けと文化的背景</h4>
+              <p class="text-neutral-600">
+                ・<code class="bg-neutral-100 px-1 rounded">¡Buenos días!</code>（おはようございます：お昼過ぎくらいまで）<br>
+                ・<code class="bg-neutral-100 px-1 rounded">¡Buenas tardes!</code>（こんにちは：日没、夕方頃まで。スペインでは昼食が14〜15時と遅いため、夕方の感覚も長めです）<br>
+                ・<code class="bg-neutral-100 px-1 rounded">¡Buenas noches!</code>（こんばんは / おやすみなさい）<br>
+                ※ <code class="bg-neutral-100 px-1 rounded">día</code> は男性名詞ですが、挨拶では複数形の <code class="bg-neutral-100 px-1 rounded">días</code> になる点（複数が一般的）に注意しましょう。
+              </p>
+            </div>
+
+            <div class="space-y-2 border-l-2 border-neutral-900 pl-4">
+              <h4 class="font-bold text-neutral-900 text-base">② 自己紹介の核心：動詞 llamar の正体（B2向け文法）</h4>
+              <p class="text-neutral-600">
+                「私の名前は〜です」と言うときの <code class="bg-neutral-100 px-1 rounded">Me llamo...</code> は、元々他動詞 llamar（呼ぶ）の再帰動詞 <code class="bg-neutral-100 px-1 rounded">llamarse</code>（自分を〜と呼ぶ）です。<br>
+                直訳すると「私は自分自身を〇〇と呼ぶ」となります。B2レベルでは、これを応用して <code class="bg-neutral-100 px-1 rounded">¿Cómo te llamas?</code>（君は何て呼ばれているの？＝お名前は？）という疑問文の仕組みや、初対面での <code class="bg-neutral-100 px-1 rounded">Mucho gusto</code>（お会いできて嬉しいです）に込められたラテン特有の親愛の情を理解しておくと会話の深みが増します。
+              </p>
+            </div>
+
+            <div class="space-y-2 border-l-2 border-amber-600 pl-4">
+              <h4 class="font-bold text-neutral-900 text-base">💡 豆知識：スペイン語圏の「Tú」と「Usted」の距離感</h4>
+              <p class="text-neutral-600">
+                スペイン語には親しい相手に使う「Tú（君・あなた）」と、目上の人や初対面に使う敬称「Usted（あなた）」があります。しかし、アルゼンチンやコロンビアなどの中南米の一部の地域では、親しみを込めて初対面でもすぐに「Tú」や、さらに親しい「Vos」という代名詞を使う文化（Simpatía）があり、言語と文化が密接に結びついています。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Dialogues -->
         <section class="space-y-4">
           <div class="flex items-center space-x-2 border-b border-neutral-200 pb-3">
             <i data-lucide="message-square" class="w-5 h-5 text-amber-600"></i>
-            <h3 class="text-xl font-bold text-neutral-900">1. 基本会話（クリックで発音再生）</h3>
+            <h3 class="text-xl font-bold text-neutral-900">2. 実践会話（クリックで発音再生）</h3>
           </div>
           <div class="bg-white border border-neutral-200/80 rounded-xl overflow-hidden shadow-sm divide-y divide-neutral-100">
             
-            <div onclick="speak('¡Hola! Buenos días.')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
+            <div onclick="speak('¡Hola! Buenos días, ¿cómo estás?')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
               <div class="mt-1 bg-neutral-100 text-neutral-800 p-2.5 rounded-full shrink-0"><i data-lucide="volume-2" class="w-4 h-4"></i></div>
               <div>
-                <span class="font-bold text-lg text-neutral-900 block">¡Hola! Buenos días.</span>
-                <p class="text-xs text-neutral-500 mt-1">やあ！おはようございます。</p>
+                <span class="font-bold text-lg text-neutral-900 block">¡Hola! Buenos días, ¿cómo estás?</span>
+                <p class="text-xs text-neutral-500 mt-1">やあ！おはよう、元気？（親しい間柄）</p>
               </div>
             </div>
 
-            <div onclick="speak('Me llamo Taro. ¿Cómo te llamas?')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
+            <div onclick="speak('Me llamo Taro. ¿Y tú, cómo te llamas?')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
               <div class="mt-1 bg-neutral-100 text-neutral-800 p-2.5 rounded-full shrink-0"><i data-lucide="volume-2" class="w-4 h-4"></i></div>
               <div>
-                <span class="font-bold text-lg text-neutral-900 block">Me llamo Taro. ¿Cómo te llamas?</span>
-                <p class="text-xs text-neutral-500 mt-1">私の名前はタロウです。お名前は何ですか？</p>
+                <span class="font-bold text-lg text-neutral-900 block">Me llamo Taro. ¿Y tú, cómo te llamas?</span>
+                <p class="text-xs text-neutral-500 mt-1">私の名前はタロウです。君はなんていう名前ですか？</p>
               </div>
             </div>
 
-            <div onclick="speak('Mucho gusto. Encantado.')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
+            <div onclick="speak('Mucho gusto. Encantado de conocerte.')" class="p-5 hover:bg-amber-50/30 transition cursor-pointer flex items-start space-x-4">
               <div class="mt-1 bg-neutral-100 text-neutral-800 p-2.5 rounded-full shrink-0"><i data-lucide="volume-2" class="w-4 h-4"></i></div>
               <div>
-                <span class="font-bold text-lg text-neutral-900 block">Mucho gusto. Encantado.</span>
-                <p class="text-xs text-neutral-500 mt-1">はじめまして。お会いできて光栄です。</p>
+                <span class="font-bold text-lg text-neutral-900 block">Mucho gusto. Encantado de conocerte.</span>
+                <p class="text-xs text-neutral-500 mt-1">はじめまして。お会いできて光栄です。（男性が話す場合）</p>
               </div>
             </div>
 
           </div>
         </section>
+
+        <!-- Section 3: Quizzes -->
+        <section class="space-y-6">
+          <div class="flex items-center justify-between border-b border-neutral-200 pb-3">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600"></i>
+              <h3 class="text-xl font-bold text-neutral-900">3. Day 01 実践クイズ（全5問）</h3>
+            </div>
+            <span class="text-xs text-amber-600 font-semibold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">5 Questions</span>
+          </div>
+
+          <!-- Q1 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">Q1. 選択問題：おはよう</span>
+            <p class="font-medium text-neutral-900">「おはようございます」の正しいスペイン語は？</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button onclick="checkQuiz(1, 0, 0, '¡Correcto! ¡Buenos días! です。', '不正解！ Buenas tardes は昼〜夕方です。', '¡Buenos días!')" class="hover-lift border border-neutral-200 rounded-xl p-4 text-left bg-white font-medium text-sm">A. ¡Buenos días!</button>
+              <button onclick="checkQuiz(1, 1, 0, '¡Correcto! ¡Buenos días! です。', '不正解！ Buenas tardes は昼〜夕方です。', '¡Buenos días!')" class="hover-lift border border-neutral-200 rounded-xl p-4 text-left bg-white font-medium text-sm">B. ¡Buenas tardes!</button>
+            </div>
+            <div id="q1-feedback" class="hidden text-sm p-4 rounded-xl"></div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">Q2. 穴埋め問題：私の名前は〜</span>
+            <p class="font-medium text-neutral-900">「私の名前はマリアです（[ ] llamo María）」の空欄に入る再帰代名詞は？（タップで表示）</p>
+            <div class="bg-neutral-50 p-4 rounded-xl flex items-center space-x-2 text-base border border-neutral-200">
+              <span onclick="revealAnswer(2, 'Me (me)', 'me')" id="q2-slot" class="cursor-pointer border-b-2 border-dashed border-amber-500 px-3 py-0.5 text-amber-600 font-bold hover:bg-amber-50 transition">[ クリックして答えを表示 ]</span>
+              <span>llamo María.</span>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">Q3. タイピングテスト：はじめまして</span>
+            <p class="font-medium text-neutral-900">「はじめまして（Mucho gusto）」を入力しなさい。</p>
+            <div class="bg-neutral-50 p-4 rounded-xl flex items-center space-x-3 text-base border border-neutral-200">
+              <input type="text" id="q3-input" placeholder="入力してください..." class="border border-neutral-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-amber-600 w-64 bg-white">
+              <button onclick="checkInput(3, ['Mucho gusto', 'mucho gusto'], 'Mucho gusto')" class="bg-neutral-900 hover:bg-amber-600 text-white font-medium px-4 py-2 rounded-lg text-xs transition cursor-pointer">判定</button>
+            </div>
+            <div id="q3-feedback" class="hidden text-sm p-4 rounded-xl"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">Q4. お名前は？</span>
+            <p class="font-medium text-neutral-900">「お名前は何ですか？」の「¿Cómo te [ ]?」の空欄に入る動詞は？</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button onclick="checkQuiz(4, 0, 0, '¡Correcto! te llamas です。', '不正解！ eres は「〜である」です。', 'llamas')" class="hover-lift border border-neutral-200 rounded-xl p-4 text-left bg-white font-medium text-sm">A. llamas</button>
+              <button onclick="checkQuiz(4, 1, 0, '¡Correcto! te llamas です。', '不正解！ eres は「〜である」です。', 'llamas')" class="hover-lift border border-neutral-200 rounded-xl p-4 text-left bg-white font-medium text-sm">B. eres</button>
+            </div>
+            <div id="q4-feedback" class="hidden text-sm p-4 rounded-xl"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-neutral-800 bg-neutral-100 px-3 py-1 rounded-full">Q5. 総合フレーズ</span>
+            <p class="font-medium text-neutral-900">「やあ！おはよう、元気？」のフルフレーズは？（タップで表示）</p>
+            <div class="bg-neutral-50 p-4 rounded-xl flex items-center space-x-2 text-base border border-neutral-200">
+              <span onclick="revealAnswer(5, '¡Hola! Buenos días, ¿cómo estás? (¡Hola! Buenos días, ¿cómo estás?)', '¡Hola! Buenos días, ¿cómo estás?')" id="q5-slot" class="cursor-pointer border-b-2 border-dashed border-amber-500 px-3 py-0.5 text-amber-600 font-bold hover:bg-amber-50 transition">[ クリックして答えを表示 ]</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 🎵 Section 4: Latin Pop Special ＆ 歌で学ぶスペイン語 -->
+        <section class="space-y-6 pt-6 border-t-2 border-neutral-200">
+          <div class="border-b border-neutral-200 pb-3">
+            <div class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-2">
+              Day 1 Special • Latin Pop & Song Learning
+            </div>
+            <h3 class="text-2xl font-bold text-neutral-900">
+              4. 世界的大ヒット曲で学ぶスペイン語のリズム
+            </h3>
+            <p class="text-xs sm:text-sm text-neutral-600 mt-1">
+              音楽を通して、ネイティブ特有のリエゾン（単語のつながり）や生きたフレーズを体感しましょう！
+            </p>
+          </div>
+
+          <!-- 曲紹介カード -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold shrink-0">
+                <i data-lucide="music" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-neutral-900">Despacito / La Mordidita などのラテンリズム</h4>
+                <p class="text-xs text-neutral-500">Latin Pop Music Culture</p>
+              </div>
+            </div>
+            <p class="text-xs text-neutral-700 leading-relaxed bg-neutral-50 p-3.5 rounded-xl border border-neutral-100">
+              <strong>【音楽文化コラム】</strong><br>
+              スペイン語圏のポップス（レゲトンやラテンポップ）は、世界中で大人気です。歌詞には日常会話の短縮形や、感情を揺さぶる美しい表現が詰まっており、歌いながら学ぶことでリスニングと発音が飛躍的に向上します。
+            </p>
+          </div>
+
+          <!-- 歌詞フレーズセクション -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-6">
+            <div class="flex justify-between items-center border-b border-neutral-200 pb-3">
+              <h4 class="text-md font-bold text-neutral-900 flex items-center space-x-2">
+                <i data-lucide="mic" class="w-4 h-4 text-amber-600"></i>
+                <span>名フレーズを聴いてみよう</span>
+              </h4>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm">
+              <div class="p-4 rounded-xl border-2 border-amber-200 bg-amber-50/30 hover-lift transition space-y-1">
+                <div class="flex justify-between items-start">
+                  <span class="font-bold text-lg text-amber-950">Quiero respirar tu cuello despacito</span>
+                  <button onclick="speak('Quiero respirar tu cuello despacito')" class="text-amber-600 hover:text-amber-700 p-1 cursor-pointer">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <p class="text-neutral-700 font-medium">君の首筋の息を感じたい、ゆっくりと（名曲『Despacito』より）</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 文法解説 -->
+          <div class="bg-white border border-neutral-200/80 rounded-xl p-6 shadow-sm space-y-5">
+            <div class="flex items-center space-x-2 border-b border-neutral-200 pb-3">
+              <i data-lucide="sparkles" class="w-5 h-5 text-amber-600"></i>
+              <h4 class="text-lg font-bold text-neutral-900">歌から学べる！重要ワンフレーズ解説</h4>
+            </div>
+
+            <div class="grid gap-4 text-xs sm:text-sm">
+              <div class="p-4 rounded-xl bg-neutral-50 border border-neutral-200/60 space-y-1.5">
+                <div class="flex items-center space-x-2">
+                  <span class="bg-amber-600 text-white font-bold px-2 py-0.5 rounded text-xs">ポイント 1</span>
+                  <span class="font-bold text-neutral-900">助動詞的な表現「Quiero (〜したい)」</span>
+                </div>
+                <p class="text-neutral-700 leading-relaxed">
+                  <code class="bg-neutral-200 px-1 rounded">Quiero</code>（ querer動詞の1人称単数形 ）に、原形の動詞（ <code class="bg-neutral-200 px-1 rounded">respirar</code>＝呼吸する ）を直結させることで、自分の強い欲求や願望をスタイリッシュに表現できます。
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
     `;
   }
