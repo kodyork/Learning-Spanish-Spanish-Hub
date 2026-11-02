@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Aprende Español! - Spanish Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Times New Roman", "Noto Serif JP", YuMincho, "Hiragino Mincho ProN", serif;
+    }
+    .hover-lift {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-neutral-950 text-white border-b border-neutral-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchDay(currentActiveDay)">
+        <span class="bg-amber-600 text-white font-bold text-lg px-2.5 py-0.5 rounded shadow-sm">西</span>
+        <div>
+          <h1 class="font-bold text-lg leading-none tracking-wide">¡Aprende Español! Spanish Hub</h1>
+        </div>
+      </div>
+      
+      <!-- Week & Day Selector & About Navigation -->
+      <div class="flex flex-wrap items-center justify-center gap-2">
+        <div class="flex items-center space-x-2 bg-neutral-900 p-1.5 rounded-xl border border-neutral-800">
+          <select id="week-select" onchange="changeWeek(this.value)" class="bg-neutral-800 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-lg border border-neutral-700 focus:outline-none cursor-pointer">
+            <option value="1">Semana 1 (Day 1 - 7)</option>
+            <option value="2">Semana 2 (Day 8 - 14)</option>
+            <option value="3">Semana 3 (Day 15 - 21)</option>
+          </select>
+          
+          <div id="day-buttons" class="flex items-center space-x-1 overflow-x-auto max-w-xs sm:max-w-none"></div>
+        </div>
+
+        <button onclick="showAboutPage()" id="btn-about" class="px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white hover:border-neutral-700 flex items-center space-x-1.5">
+          <i data-lucide="user" class="w-3.5 h-3.5 text-amber-500"></i>
+          <span>About</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Main Content -->
+  <div id="app-root" class="flex-1"></div>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 text-neutral-400 py-8 text-center text-xs border-t border-neutral-800">
+    <div class="max-w-5xl mx-auto px-4 space-y-3">
+      <p>© kodyork 2026</p>
+      <div class="flex justify-center space-x-4 text-neutral-500">
+        <button onclick="switchDay(currentActiveDay)" class="hover:text-amber-400 transition">Lessons</button>
+        <span>•</span>
+        <button onclick="showAboutPage()" class="hover:text-amber-400 transition">About Admin</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load Spanish Lesson Data Scripts -->
+  <script src="./data/lessons/day01.js"></script>
+  <script src="./data/lessons/day02.js"></script>
+  <script src="./data/lessons/day03.js"></script>
+  <script src="./data/lessons/day04.js"></script>
+  <script src="./data/lessons/day05.js"></script>
+  <script src="./data/lessons/day06.js"></script>
+  <script src="./data/lessons/day07.js"></script>
+  <script src="./data/lessons/day08.js"></script>
+  <script src="./data/lessons/day09.js"></script>
+  <script src="./data/lessons/day10.js"></script>
+  <script src="./data/lessons/day11.js"></script>
+  <script src="./data/lessons/day12.js"></script>
+  <script src="./data/lessons/day13.js"></script>
+  <script src="./data/lessons/day14.js"></script>
+  <script src="./data/lessons/day15.js"></script>
+  <script src="./data/lessons/day16.js"></script>
+  <script src="./data/lessons/day17.js"></script>
+  <script src="./data/lessons/day18.js"></script>
+  <script src="./data/lessons/day19.js"></script>
+  <script src="./data/lessons/day20.js"></script>
+  <script src="./data/lessons/day21.js"></script>
+
+  <!-- Controller Logic -->
+  <script>
+    let currentSpeed = 0.85; // スペイン語用にデフォルト速度を調整
+    let currentActiveDay = 1;
+    let currentActiveWeek = 1;
+
+    function changeWeek(weekNum) {
+      currentActiveWeek = parseInt(weekNum);
+      const startDay = (currentActiveWeek - 1) * 7 + 1;
+      renderDayButtons(startDay);
+      switchDay(startDay);
+    }
+
+    function renderDayButtons(startDay) {
+      const container = document.getElementById('day-buttons');
+      container.innerHTML = '';
+
+      for (let i = startDay; i < startDay + 7; i++) {
+        const dayStr = i < 10 ? `0${i}` : `${i}`;
+        const btn = document.createElement('button');
+        btn.id = `btn-day${i}`;
+        btn.onclick = () => switchDay(i);
+        btn.innerText = `D${dayStr}`;
+        btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 text-neutral-400 hover:text-white";
+        container.appendChild(btn);
+      }
+    }
+
+    function setSpeed(speed) {
+      currentSpeed = speed;
+      const btn085 = document.getElementById('speed-085');
+      const btn100 = document.getElementById('speed-100');
+
+      if (btn085 && btn100) {
+        btn085.className = speed === 0.85
+          ? "px-3.5 py-1.5 text-xs rounded-lg border border-neutral-900 bg-neutral-900 text-white font-medium transition cursor-pointer"
+          : "px-3.5 py-1.5 text-xs rounded-lg border border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-neutral-900 font-medium transition cursor-pointer";
+        btn100.className = speed === 1.0
+          ? "px-3.5 py-1.5 text-xs rounded-lg border border-neutral-900 bg-neutral-900 text-white font-medium transition cursor-pointer"
+          : "px-3.5 py-1.5 text-xs rounded-lg border border-neutral-200 bg-neutral-50 text-neutral-700 hover:border-neutral-900 font-medium transition cursor-pointer";
+      }
+    }
+
+    // スペイン語音声再生（es-ES）
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        setTimeout(() => {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'es-ES'; // スペイン語に設定
+          utterance.rate = parseFloat(currentSpeed);
+          window.speechSynthesis.speak(utterance);
+        }, 50);
+      } else {
+        alert("お使いのブラウザは音声再生に対応していません。");
+      }
+    }
+
+    function switchDay(dayNum) {
+      currentActiveDay = dayNum;
+
+      currentActiveWeek = Math.ceil(dayNum / 7);
+      const weekSelect = document.getElementById('week-select');
+      if (weekSelect && parseInt(weekSelect.value) !== currentActiveWeek) {
+        weekSelect.value = currentActiveWeek;
+        renderDayButtons((currentActiveWeek - 1) * 7 + 1);
+      }
+
+      const btnAbout = document.getElementById('btn-about');
+      if (btnAbout) {
+        btnAbout.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white hover:border-neutral-700 flex items-center space-x-1.5";
+      }
+
+      const startDay = (currentActiveWeek - 1) * 7 + 1;
+      for (let i = startDay; i < startDay + 7; i++) {
+        const btn = document.getElementById(`btn-day${i}`);
+        if (btn) {
+          btn.className = i === dayNum
+            ? "px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 bg-amber-600 text-white shadow-sm"
+            : "px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 text-neutral-400 hover:text-white";
+        }
+      }
+
+      const lessonDataMap = {
+        1: typeof day01Data !== 'undefined' ? day01Data : null,
+        2: typeof day02Data !== 'undefined' ? day02Data : null,
+        3: typeof day03Data !== 'undefined' ? day03Data : null,
+        4: typeof day04Data !== 'undefined' ? day04Data : null,
+        5: typeof day05Data !== 'undefined' ? day05Data : null,
+        6: typeof day06Data !== 'undefined' ? day06Data : null,
+        7: typeof day07Data !== 'undefined' ? day07Data : null,
+        8: typeof day08Data !== 'undefined' ? day08Data : null,
+        9: typeof day09Data !== 'undefined' ? day09Data : null,
+        10: typeof day10Data !== 'undefined' ? day10Data : null,
+        11: typeof day11Data !== 'undefined' ? day11Data : null,
+        12: typeof day12Data !== 'undefined' ? day12Data : null,
+        13: typeof day13Data !== 'undefined' ? day13Data : null,
+        14: typeof day14Data !== 'undefined' ? day14Data : null,
+        15: typeof day15Data !== 'undefined' ? day15Data : null,
+        16: typeof day16Data !== 'undefined' ? day16Data : null,
+        17: typeof day17Data !== 'undefined' ? day17Data : null,
+        18: typeof day18Data !== 'undefined' ? day18Data : null,
+        19: typeof day19Data !== 'undefined' ? day19Data : null,
+        20: typeof day20Data !== 'undefined' ? day20Data : null,
+        21: typeof day21Data !== 'undefined' ? day21Data : null
+      };
+
+      const data = lessonDataMap[dayNum];
+      const root = document.getElementById('app-root');
+
+      if (data && data.render) {
+        root.innerHTML = data.render();
+        lucide.createIcons();
+        setSpeed(currentSpeed);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const dayStr = dayNum < 10 ? `0${dayNum}` : `${dayNum}`;
+        root.innerHTML = `
+          <div class="max-w-4xl mx-auto px-4 py-20 text-center">
+            <p class="text-lg font-bold text-neutral-500">Day ${dayStr} のファイル（day${dayStr}.js）がまだ追加されていないか読み込めません。</p>
+            <p class="text-xs text-neutral-400 mt-2">data/lessons/ ディレクトリ内に該当ファイルが存在するかご確認ください。</p>
+          </div>
+        `;
+      }
+    }
+
+    function showAboutPage() {
+      const btnAbout = document.getElementById('btn-about');
+      if (btnAbout) {
+        btnAbout.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer border border-amber-500 bg-amber-600 text-white shadow-sm flex items-center space-x-1.5";
+      }
+
+      const startDay = (currentActiveWeek - 1) * 7 + 1;
+      for (let i = startDay; i < startDay + 7; i++) {
+        const btn = document.getElementById(`btn-day${i}`);
+        if (btn) {
+          btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer shrink-0 text-neutral-400 hover:text-white";
+        }
+      }
+
+      const root = document.getElementById('app-root');
+      root.innerHTML = `
+        <section class="bg-neutral-950 text-white py-12 px-4 border-b border-neutral-800 relative overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-950/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center space-x-2 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3 bg-amber-950/50 px-3 py-1 rounded-full border border-amber-900/50">
+              <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+              <span>Administrator Profile</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-100">
+              ウェブサイト管理人について
+            </h2>
+          </div>
+        </section>
+
+        <main class="max-w-4xl mx-auto px-4 py-12 space-y-10">
+          <div class="bg-white border border-neutral-200/80 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center md:items-start gap-8">
+            <div class="shrink-0 text-center">
+              <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-neutral-100 border-4 border-amber-100 overflow-hidden shadow-inner flex items-center justify-center mx-auto relative">
+                <img src="Grad ID Photo" alt="kodyork" class="w-full h-full object-cover">
+              </div>
+              <span class="inline-block mt-3 px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-full border border-amber-200">
+                kodyork
+              </span>
+            </div>
+
+            <div class="space-y-4 flex-1 text-center md:text-left">
+              <div>
+                <h3 class="text-2xl font-bold text-neutral-900">kodyork</h3>
+                <p class="text-xs text-amber-600 font-semibold tracking-wide uppercase mt-0.5">Creator & Language Enthusiast</p>
+              </div>
+
+              <p class="text-sm text-neutral-700 leading-relaxed">
+                ¡Hola! kodyorkです。語学学習の一環として、実践的で使いやすいスペイン語フレーズを楽しく学べるプラットフォームを制作・運営しています！
+              </p>
+            </div>
+          </div>
+        </main>
+      `;
+
+      lucide.createIcons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function checkQuiz(qNum, optIdx, correctIdx, correctMsg, wrongMsg, speakText) {
+      const fb = document.getElementById(`q${qNum}-feedback`);
+      fb.classList.remove('hidden', 'bg-neutral-900', 'text-white', 'bg-neutral-100', 'text-neutral-800');
+
+      if (optIdx === correctIdx) {
+        fb.classList.add('bg-neutral-900', 'text-white');
+        fb.innerHTML = `✓ ${correctMsg}`;
+        if (speakText) speak(speakText);
+      } else {
+        fb.classList.add('bg-neutral-100', 'text-neutral-800');
+        fb.innerHTML = `✕ ${wrongMsg}`;
+      }
+    }
+
+    function revealAnswer(qNum, answerText, speakText) {
+      const slot = document.getElementById(`q${qNum}-slot`);
+      slot.innerHTML = `<span class="text-amber-600 font-bold border-b-2 border-amber-600 px-1.5 py-0.5 animate-pulse">${answerText}</span>`;
+      if (speakText) speak(speakText);
+    }
+
+    function checkInput(qNum, correctAnswers, speakText) {
+      const val = document.getElementById(`q${qNum}-input`).value.trim().toLowerCase();
+      const fb = document.getElementById(`q${qNum}-feedback`);
+      fb.classList.remove('hidden', 'bg-neutral-900', 'text-white', 'bg-neutral-100', 'text-neutral-800');
+
+      const lowerCorrect = correctAnswers.map(a => a.toLowerCase());
+      if (lowerCorrect.includes(val)) {
+        fb.classList.add('bg-neutral-900', 'text-white');
+        fb.innerHTML = '✓ ¡Correcto! (正解です！)';
+        if (speakText) speak(speakText);
+      } else {
+        fb.classList.add('bg-neutral-100', 'text-neutral-800');
+        fb.innerHTML = `✕ 残念！ 正解は 「${correctAnswers[0]}」 です。`;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderDayButtons(1);
+      switchDay(1);
+    });
+  </script>
+</body>
+</html>
